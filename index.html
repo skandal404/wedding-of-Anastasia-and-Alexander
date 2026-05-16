@@ -8,7 +8,6 @@
     <meta property="og:title" content="Александр & Анастасия | Свадебное приглашение">
     <meta property="og:description" content="Приглашаем вас разделить с нами этот день. 18 июля 2026, Капитан club">
     <meta property="og:image" content="https://placehold.co/1200x630/d9eaff/5d7692?text=Wedding">
-    <meta property="og:url" content="https://your-site.ru">
     <!-- Шрифты -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,6 +30,17 @@
             overflow-x: hidden;
         }
 
+        /* Зернистость (grain overlay) */
+        .grain-overlay {
+            position: fixed;
+            inset: 0;
+            background-image: url('img/decor/grain-overlay.png');
+            background-size: cover;
+            opacity: 0.035;
+            pointer-events: none;
+            z-index: 999;
+        }
+
         .scroll-progress {
             position: fixed;
             top: 0;
@@ -42,17 +52,17 @@
             transition: width 0.1s;
         }
 
-        /* Узкий контейнер — ключевое изменение */
+        /* Узкий контейнер — ещё уже */
         .container {
             width: 100%;
-            max-width: 620px;
+            max-width: 560px;
             margin: 0 auto;
             padding: 20px 16px 80px;
             position: relative;
             z-index: 2;
         }
 
-        /* Полностью убираем отдельные карточки — всё становится единой композицией */
+        /* Блоки почти без отступов — единая открытка */
         .card {
             background: rgba(255,255,255,0.42);
             backdrop-filter: blur(4px);
@@ -60,14 +70,14 @@
             border: 1px solid rgba(255,255,255,0.5);
             box-shadow: 0 10px 30px rgba(0,0,0,0.02);
             padding: 2rem 1.8rem;
-            margin-bottom: 1.8rem;
+            margin-bottom: 0.6rem;
             transition: none;
         }
 
         h2 {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.8rem;
-            font-weight: 400;
+            font-weight: 300;
             color: #7d8ea1;
             margin-bottom: 1.2rem;
             text-align: center;
@@ -76,7 +86,7 @@
             letter-spacing: 0.5px;
         }
 
-        /* HERO — полностью переделан */
+        /* HERO */
         .hero {
             position: relative;
             padding: 60px 24px 50px;
@@ -87,54 +97,55 @@
             border: 1px solid rgba(255,255,255,0.6);
             box-shadow: 0 10px 30px rgba(0,0,0,0.02);
             text-align: center;
-            margin-bottom: 1.8rem;
+            margin-bottom: 0.6rem;
         }
 
         .hero-leaf-left,
         .hero-leaf-right {
             position: absolute;
             width: 220px;
-            opacity: 0.35;
+            opacity: 0.18;  /* ослаблено */
             mix-blend-mode: multiply;
             pointer-events: none;
             top: -30px;
         }
-        .hero-leaf-left {
-            left: -40px;
-        }
-        .hero-leaf-right {
-            right: -40px;
-            transform: scaleX(-1);
-        }
+        .hero-leaf-left { left: -40px; }
+        .hero-leaf-right { right: -40px; transform: scaleX(-1); }
 
         .hero-photo-frame {
+            position: relative;
             width: 260px;
             height: 320px;
-            border-radius: 180px;
-            overflow: hidden;
-            margin: 0 auto 28px;
-            padding: 10px;
-            background: rgba(255,255,255,0.65);
-            border: 1px solid rgba(255,255,255,0.7);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+            margin: 0 auto 32px;
         }
-        .hero-photo-frame img {
+        .hero-main-photo {
+            position: absolute;
+            inset: 18px;
+            width: calc(100% - 36px);
+            height: calc(100% - 36px);
+            object-fit: cover;
+            border-radius: 160px;
+            z-index: 1;
+        }
+        .oval-frame {
+            position: absolute;
+            inset: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            border-radius: 180px;
+            object-fit: contain;
+            z-index: 2;
+            opacity: 0.9;
         }
 
         .hero-names {
             font-family: 'Cormorant Garamond', serif;
             font-size: 2.8rem;
-            font-weight: 400;
+            font-weight: 300;
             color: #74879b;
             letter-spacing: 1px;
             line-height: 1.1;
             margin-bottom: 0.5rem;
         }
-
         .hero-date {
             font-family: 'Montserrat', sans-serif;
             font-size: 0.85rem;
@@ -143,18 +154,27 @@
             text-transform: uppercase;
             margin-top: 0.8rem;
         }
-
         .hero-subtitle {
             font-size: 0.9rem;
+            font-weight: 300;
             color: #9aaabd;
             margin-top: 1rem;
         }
 
-        /* КАЛЕНДАРЬ — мягкий, без жёстких границ */
+        /* Разделители между секциями */
+        .section-divider {
+            width: 140px;
+            display: block;
+            margin: 12px auto;
+            opacity: 0.18;
+            mix-blend-mode: multiply;
+        }
+
+        /* Календарь */
         .calendar-section {
             display: flex;
             justify-content: center;
-            margin: 1rem 0 1.5rem;
+            margin: 0.6rem 0 0;
         }
         .calendar-card {
             width: 100%;
@@ -168,13 +188,14 @@
             text-align: center;
             position: relative;
             overflow: hidden;
+            margin-bottom: 0;
         }
         .calendar-dust {
             position: absolute;
             top: 0;
             right: 0;
             width: 130px;
-            opacity: 0.25;
+            opacity: 0.18;
             mix-blend-mode: multiply;
             pointer-events: none;
         }
@@ -195,7 +216,7 @@
         .wedding-day {
             position: relative;
             color: #d8c19a;
-            font-weight: 500;
+            font-weight: 400;
         }
         .wedding-day::before {
             content: '';
@@ -215,10 +236,11 @@
             margin-top: 30px;
             font-size: 0.85rem;
             font-style: italic;
+            font-weight: 300;
             color: #9aaabd;
         }
 
-        /* ТАЙМЛАЙН — нежный, без массивных цифр */
+        /* Таймлайн */
         .story-timeline {
             position: relative;
             min-height: 1000px;
@@ -226,7 +248,7 @@
             backdrop-filter: blur(4px);
             border-radius: 48px;
             padding: 2rem 1rem;
-            margin: 1.5rem 0;
+            margin: 0.6rem 0;
             border: 1px solid rgba(255,255,255,0.5);
             overflow: hidden;
         }
@@ -236,7 +258,7 @@
             left: 50%;
             top: 150px;
             transform: translateX(-50%);
-            opacity: 0.15;
+            opacity: 0.12;
             mix-blend-mode: multiply;
             pointer-events: none;
         }
@@ -274,7 +296,7 @@
             font-family: 'Cormorant Garamond', serif;
             font-size: 28px;
             color: #d8c19a;
-            font-weight: 400;
+            font-weight: 300;
             letter-spacing: 1px;
         }
         .event-title {
@@ -286,9 +308,13 @@
         .timeline-flower {
             position: absolute;
             width: 28px;
-            opacity: 0.5;
+            opacity: 0.25;
             pointer-events: none;
         }
+        .tf1 { top: 220px; left: 180px; }
+        .tf2 { top: 430px; right: 170px; }
+        .tf3 { top: 700px; left: 170px; }
+        .tf4 { bottom: 170px; right: 180px; }
 
         /* Дресс-код */
         .dresscode-colors {
@@ -351,16 +377,16 @@
             width: 180px;
             display: block;
             margin: 1rem auto 1.5rem;
-            opacity: 0.35;
+            opacity: 0.18;
             mix-blend-mode: multiply;
         }
 
-        /* Угловой декор */
+        /* Угловой декор (ослаблен) */
         .site-corner {
             position: fixed;
             pointer-events: none;
             z-index: 0;
-            opacity: 0.25;
+            opacity: 0.18;
             mix-blend-mode: multiply;
         }
         .corner-1 {
@@ -393,19 +419,20 @@
             .timeline-event { max-width: 160px; }
             .time { font-size: 24px; }
             .event-title { font-size: 14px; }
-            .site-corner { width: 130px; opacity: 0.2; }
+            .site-corner { width: 130px; opacity: 0.12; }
         }
     </style>
 </head>
 <body>
 
+<div class="grain-overlay"></div>
 <div id="progressBar" class="scroll-progress"></div>
 
-<!-- Угловой декор (PNG) -->
-<img src="img/corner-top-left.png" class="site-corner corner-1" alt="decor">
-<img src="img/corner-bottom-right.png" class="site-corner corner-2" alt="decor">
+<!-- Угловой декор (ослабленный) -->
+<img src="img/decor/corner-top-left.png" class="site-corner corner-1" alt="decor">
+<img src="img/decor/corner-bottom-right.png" class="site-corner corner-2" alt="decor">
 
-<!-- СТАРТОВЫЙ ЭКРАН (без изменений) -->
+<!-- СТАРТОВЫЙ ЭКРАН -->
 <div id="startscreen" class="startscreen">
     <div class="startscreen-content">
         <img src="img/photo.jpg" alt="Свадьба">
@@ -418,21 +445,25 @@
 <div id="mainContent" class="main-content">
     <div class="container">
 
-        <!-- HERO — новая композиция -->
+        <!-- HERO с овальной рамкой -->
         <div class="hero">
             <img class="hero-leaf-left" src="img/decor/top-botanical-left.png" alt="">
             <img class="hero-leaf-right" src="img/decor/top-botanical-right.png" alt="">
             <div class="hero-photo-frame">
-                <img src="img/photo.jpg" alt="Александр и Анастасия">
+                <img class="oval-frame" src="img/decor/oval-frame.png" alt="">
+                <img class="hero-main-photo" src="img/photo.jpg" alt="Александр и Анастасия">
             </div>
             <div class="hero-names">Александр & Анастасия</div>
             <div class="hero-date">18 ИЮЛЯ 2026</div>
             <div class="hero-subtitle">Мы счастливы будем разделить этот день с вами</div>
         </div>
 
+        <!-- Разделитель -->
+        <img class="section-divider" src="img/decor/section-divider.png" alt="">
+
         <!-- КАЛЕНДАРЬ -->
         <div class="calendar-card">
-            <img class="calendar-dust" src="img/gold-dust.png" alt="">
+            <img class="calendar-dust" src="img/decor/gold-speckles.png" alt="">
             <h2>наш июль</h2>
             <div class="calendar-grid">
                 <div>ПН</div><div>ВТ</div><div>СР</div><div>ЧТ</div><div>ПТ</div><div>СБ</div><div>ВС</div>
@@ -443,9 +474,12 @@
             <div class="calendar-text">Скоро мы скажем друг другу «да»</div>
         </div>
 
-        <!-- ТАЙМЛАЙН -->
+        <!-- Разделитель -->
+        <img class="section-divider" src="img/decor/section-divider.png" alt="">
+
+        <!-- ТАЙМЛАЙН с цветочками -->
         <div class="story-timeline">
-            <img class="timeline-watercolor" src="img/watercolor-blue.png" alt="">
+            <img class="timeline-watercolor" src="img/decor/watercolor-cloud-blue.png" alt="">
             <svg class="timeline-svg" viewBox="0 0 400 900" preserveAspectRatio="none">
                 <path id="timeline-path" d="M200 20 C30 180, 380 280, 200 450 C30 620, 380 720, 200 880" />
             </svg>
@@ -453,19 +487,26 @@
                 <div class="time">15:00</div>
                 <div class="event-title">Сбор гостей</div>
             </div>
+            <img class="timeline-flower tf1" src="img/decor/tiny-flower.png" alt="">
             <div class="timeline-event e2">
                 <div class="time">15:30</div>
                 <div class="event-title">Выездная регистрация</div>
             </div>
+            <img class="timeline-flower tf2" src="img/decor/tiny-flower.png" alt="">
             <div class="timeline-event e3">
                 <div class="time">16:00</div>
                 <div class="event-title">Торжественный банкет</div>
             </div>
+            <img class="timeline-flower tf3" src="img/decor/tiny-flower.png" alt="">
             <div class="timeline-event e4">
                 <div class="time">21:30</div>
                 <div class="event-title">Окончание вечера</div>
             </div>
+            <img class="timeline-flower tf4" src="img/decor/tiny-flower.png" alt="">
         </div>
+
+        <!-- Разделитель -->
+        <img class="section-divider" src="img/decor/section-divider.png" alt="">
 
         <!-- МЕСТО -->
         <div class="card">
@@ -528,6 +569,7 @@
     </div>
 </div>
 
+<!-- Фоновая музыка -->
 <audio id="bgMusic" loop>
     <source src="https://dl.dropbox.com/scl/fi/4radz0teq3s01kl3v58z0/20.mp3?rlkey=5dufsq2jwdc9v43w6yrvudbkm&dl=0" type="audio/mpeg">
 </audio>
@@ -571,6 +613,7 @@
         font-family: 'Cormorant Garamond', serif;
         color: #74879b;
         font-size: 1.8rem;
+        font-weight: 300;
     }
     .startscreen-content p {
         color: #9aaabd;
@@ -580,7 +623,7 @@
     .main-content.visible { opacity: 1; }
     .radio-group { display: flex; flex-wrap: wrap; gap: 1rem; margin: 0.5rem 0; }
     .radio-group label { display: flex; align-items: center; gap: 0.4rem; font-size: 0.9rem; }
-    .rsvp-section h3 { font-size: 1rem; margin: 0.8rem 0 0.3rem; color: #7d8ea1; font-weight: 400; }
+    .rsvp-section h3 { font-size: 1rem; margin: 0.8rem 0 0.3rem; color: #7d8ea1; font-weight: 300; }
     input[type="radio"] { accent-color: #d8c19a; }
 </style>
 
