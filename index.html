@@ -33,17 +33,11 @@
         /* Глобальное акварельное пятно */
         .global-watercolor {
             position: fixed;
-
-            width: 1100px;
-            max-width: none;
-
+            width: 1400px;
             left: 50%;
-            top: 120px;
-
+            top: 200px;
             transform: translateX(-50%);
-
-            opacity: 0.22;
-
+            opacity: 0.32;
             z-index: 0;
             pointer-events: none;
         }
@@ -71,6 +65,38 @@
         }
 
         /* Узкий контейнер */
+        
+        .invitation-card{
+            position:relative;
+            background:
+                linear-gradient(rgba(255,252,248,.92), rgba(255,252,248,.92)),
+                url('img/decor/paper-texture-2.jpg');
+            background-size:cover;
+            overflow:hidden;
+            box-shadow:0 20px 80px rgba(0,0,0,.06);
+            border:1px solid rgba(214,190,138,.25);
+        }
+
+        .invitation-card::before{
+            content:"";
+            position:absolute;
+            inset:0;
+            background-image:
+                url('img/decor/gold-speckles.png'),
+                url('img/decor/watercolor-cloud-blue.png');
+            background-repeat:repeat,no-repeat;
+            background-size:800px auto, 1200px auto;
+            background-position:center, center 300px;
+            opacity:.22;
+            pointer-events:none;
+        }
+
+        .invitation-card > *{
+            position:relative;
+            z-index:2;
+        }
+
+
         .container {
             width: 100%;
             max-width: 620px;
@@ -81,818 +107,39 @@
         }
 
         /* Общие блоки — без блюра, плотный фон */
+        
         .card {
             background: transparent;
-            border-radius: 0;
-            border: none;
-            box-shadow: none;
-
-            padding: 3.5rem 1.6rem;
-            margin-bottom: 0;
-
-            position: relative;
-            overflow: visible;
-
-            text-align: center;
+            border:none;
+            box-shadow:none;
+            border-radius:0;
+            padding:4rem 2rem;
+            margin-bottom:0;
+            text-align:center;
+            position:relative;
         }
-
-        /* Акварельное пятно под каждым блоком (вместо разделителей) */
-        .card::before,
-        .calendar-card::before,
-        .story-timeline::before {
-            content: "";
-            position: absolute;
-            width: 320px;
-            height: 320px;
-            background-image: url('img/decor/watercolor-cloud-blue.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.18;
-            z-index: 0;
-            pointer-events: none;
-            bottom: -60px;
-            right: -60px;
-        }
-
-        .invitation-card {
-            position: relative;
-            overflow: hidden;
-
-            background:
-                linear-gradient(rgba(255,255,255,.72), rgba(255,255,255,.72)),
-                url('img/decor/paper-texture-2.jpg');
-
-            border: 1px solid rgba(216,193,154,.35);
-
-            box-shadow:
-                0 30px 80px rgba(80,70,60,.08);
-
-            padding: 24px 18px 40px;
-
-            border-radius: 0;
-        }
-
-        .invitation-card::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-
-            background-image:
-                url('img/decor/gold-speckles.png'),
-                url('img/decor/watercolor-cloud-blue.png');
-
-            background-size:
-                100% auto,
-                900px auto;
-
-            background-position:
-                top center,
-                center 220px;
-
-            background-repeat: repeat-y, no-repeat;
-
-            opacity: .32;
-
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .invitation-card > * {
-            position: relative;
-            z-index: 1;
-        }
-
-        h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.8rem;
-            font-weight: 300;
-            color: #7d8ea1;
-            margin-bottom: 1.2rem;
-            text-align: center;
-            border-bottom: none;
-            letter-spacing: 0.5px;
-        }
-
-        /* HERO — огромный, с большими листьями */
-        .hero {
-            position: relative;
-
-            padding: 90px 20px 80px;
-            min-height: auto;
-
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-
-            background: transparent;
-            border-radius: 0;
-            border: none;
-            box-shadow: none;
-
-            text-align: center;
-            margin-bottom: 0;
-
-            overflow: visible;
-        }
-
-        .hero-leaf-left,
-        .hero-leaf-right {
-            position: absolute;
-            width: 480px;
-            opacity: 0.55;
-            pointer-events: none;
-        }
-        .hero-leaf-left {
-            left: -180px;
-            top: -120px;
-        }
-        .hero-leaf-right {
-            right: -180px;
-            top: -120px;
-            transform: scaleX(-1);
-        }
-
-        .hero-photo-frame {
-            width: 420px;
-            height: 560px;
-            max-width: 100%;
-            margin: 0 auto 40px;
-            position: relative;
-        }
-        .hero-main-photo {
-            position: absolute;
-            inset: 18px;
-            width: calc(100% - 36px);
-            height: calc(100% - 36px);
-            object-fit: cover;
-            border-radius: 300px;
-            z-index: 1;
-        }
-        .oval-frame {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            z-index: 2;
-            opacity: 0.95;
-        }
-
-        .hero-names {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 5.4rem;
-            font-weight: 400;
-            color: #6d7f92;
-            line-height: 0.95;
-            letter-spacing: 0;
-            margin-top: 10px;
-        }
-        .hero-date {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.9rem;
-            letter-spacing: 6px;
-            color: #d8c19a;
-            text-transform: uppercase;
-            margin-top: 1rem;
-        }
-        .hero-subtitle {
-            font-size: 0.95rem;
-            font-weight: 300;
-            color: #9aaabd;
-            margin-top: 1rem;
-        }
-
-        /* КАЛЕНДАРЬ — огромный, во всю ширину */
-        .calendar-section {
-            display: flex;
-            justify-content: center;
-            margin: 0.5rem 0;
-        }
-        .calendar-card {
-            width: 100%;
-            max-width: none;
-            padding: 90px 60px;
-            border-radius: 300px;
-            background: linear-gradient(rgba(255,255,255,.82), rgba(255,255,255,.82));
-            border: 1px solid rgba(214,190,138,.2);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.02);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .calendar-dust {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 180px;
-            opacity: 0.35;
-            pointer-events: none;
-        }
-        .calendar-card h2 {
-            font-size: 1.8rem;
-            margin-bottom: 0;
-        }
-        .calendar-grid {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 20px;
-            margin-top: 40px;
-            font-size: 24px;
-            font-weight: 300;
-            letter-spacing: 0;
-            opacity: 0.9;
-        }
-        .wedding-day {
-            position: relative;
-            color: #d8c19a;
-            font-weight: 500;
-        }
-        .wedding-day::before {
-            content: '';
-            position: absolute;
-            inset: -15px;
-            background: radial-gradient(rgba(216,193,154,0.25), transparent 70%);
-            border-radius: 50%;
-            z-index: -1;
-            animation: pulse 3s infinite;
-        }
-        @keyframes pulse {
-            0% { transform: scale(0.8); opacity: 0.6; }
-            50% { transform: scale(1.2); opacity: 1; }
-            100% { transform: scale(0.8); opacity: 0.6; }
-        }
-        .calendar-text {
-            margin-top: 40px;
-            font-size: 0.9rem;
-            font-style: italic;
-            font-weight: 300;
-            color: #9aaabd;
-        }
-
-        /* ТАЙМЛАЙН */
-        .story-timeline {
-            position: relative;
-
-            min-height: 980px;
-
-            background: transparent;
-            border-radius: 0;
-            padding: 2rem 1rem;
-            margin: 0;
-
-            border: none;
-            overflow: hidden;
-        }
-        .timeline-watercolor {
-            position: absolute;
-            width: 500px;
-            left: 50%;
-            top: 150px;
-            transform: translateX(-50%);
-            opacity: 0.22;
-            pointer-events: none;
-        }
-        .timeline-svg {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-        }
-        #timeline-path {
-            fill: none;
-            stroke: #d8c19a;
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-dasharray: 4000;
-            stroke-dashoffset: 4000;
-        }
-        .timeline-event {
-            position: absolute;
-            max-width: 220px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-            z-index: 2;
-        }
-        .timeline-event.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .e1 { top: 140px; left: 20px; }
-        .e2 { top: 380px; right: 20px; text-align: right; }
-        .e3 { top: 660px; left: 20px; }
-        .e4 { bottom: 100px; right: 20px; text-align: right; }
-        .time {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 32px;
-            color: #d8c19a;
-            font-weight: 400;
-        }
-        .event-title {
-            font-size: 20px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 300;
-            color: #6d7f92;
-        }
-        .timeline-flower {
-            position: absolute;
-            width: 36px;
-            opacity: 0.6;
-            pointer-events: none;
-        }
-        .tf1 { top: 220px; left: 200px; }
-        .tf2 { top: 430px; right: 190px; }
-        .tf3 { top: 700px; left: 190px; }
-        .tf4 { bottom: 170px; right: 200px; }
-
-        /* Дресс-код */
-        .dresscode-colors {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin: 1.5rem 0;
-        }
-        .color-circle {
-            width: 54px;
-            height: 54px;
-            border-radius: 50%;
-            border: 1px solid rgba(214,190,138,0.3);
-            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
-        }
-
-        /* Карта */
-        .map-link {
-            background: rgba(255,255,255,0.6);
-            border-radius: 60px;
-            padding: 0.7rem 1rem;
-            text-align: center;
-            margin-top: 1rem;
-            border: 1px solid rgba(214,190,138,0.2);
-        }
-        .map-link a {
-            color: #7d8ea1;
-            text-decoration: none;
-            font-size: 0.85rem;
-        }
-
-        /* Форма */
-        .rsvp-form input[type="text"] {
-            width: 100%;
-            padding: 0.9rem 1.2rem;
-            border: 1px solid rgba(214,190,138,0.3);
-            border-radius: 60px;
-            font-size: 0.9rem;
-            background: rgba(255,255,255,0.8);
-            outline: none;
-            margin: 0.5rem 0;
-        }
-        .rsvp-form button {
-            background: #d8c19a;
-            color: #fff;
-            border: none;
-            padding: 0.9rem;
-            border-radius: 60px;
-            font-size: 0.9rem;
-            letter-spacing: 2px;
-            cursor: pointer;
-            width: 100%;
-            margin-top: 0.5rem;
-        }
-        .footer-ornament {
-            width: 200px;
-            display: block;
-            margin: 1rem auto 1.5rem;
-            opacity: 0.5;
-        }
-
-        /* Угловой декор — заметный */
-        .site-corner {
-            position: fixed;
-            pointer-events: none;
-            z-index: 1;
-            opacity: 0.55;
-        }
-
-        .corner-1 {
-            top: -40px;
-            left: -40px;
-            width: 360px;
-        }
-
-        .corner-2 {
-            bottom: -40px;
-            right: -40px;
-            width: 360px;
-            transform: none;
-        }
-
-        /* Анимация появления */
-        .card, .hero, .calendar-card, .story-timeline {
-            animation: fadeUp 0.9s ease both;
-        }
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Мобильная версия — адаптация под большие элементы */
-        @media (max-width: 680px) {
-            .container { max-width: 540px; }
-            .hero { padding: 80px 20px 60px; min-height: 720px; }
-            .hero-photo-frame { width: 280px; height: 380px; }
-            .hero-leaf-left, .hero-leaf-right { width: 300px; top: -60px; }
-            .hero-leaf-left { left: -120px; }
-            .hero-leaf-right { right: -120px; }
-            .hero-names { font-size: 3rem; line-height: 1; }
-            .calendar-card { padding: 60px 30px; border-radius: 180px; }
-            .calendar-grid { gap: 12px; font-size: 18px; }
-            .timeline-event { max-width: 160px; }
-            .time { font-size: 26px; }
-            .event-title { font-size: 16px; }
-            .timeline-flower { width: 28px; }
-            .tf1 { left: 140px; }
-            .tf2 { right: 130px; }
-            .tf3 { left: 130px; }
-            .tf4 { right: 140px; }
-            .site-corner { width: 180px; opacity: 0.3; }
-        }
-    </style>
-</head>
-<body>
-
-<div class="grain-overlay"></div>
-<div id="progressBar" class="scroll-progress"></div>
-
-<!-- Глобальное акварельное пятно -->
-<img class="global-watercolor" src="img/decor/watercolor-cloud-blue.png" alt="">
-
-<!-- Угловой декор -->
-<img src="img/decor/corner-top-left.png" class="site-corner corner-1" alt="decor">
-<img src="img/decor/corner-bottom-right.png" class="site-corner corner-2" alt="decor">
-
-<!-- СТАРТОВЫЙ ЭКРАН (без изменений) -->
-<div id="startscreen" class="startscreen">
-    <div class="startscreen-content">
-        <img src="img/photo.jpg" alt="Свадьба">
-        <h2>Приглашение на свадьбу</h2>
-        <p>Нажмите в любом месте, чтобы открыть</p>
-    </div>
-</div>
-
-<!-- ОСНОВНОЙ КОНТЕНТ -->
-<div id="mainContent" class="main-content">
-    <div class="container">
-        <div class="invitation-card">
-
-        <!-- HERO (огромный) -->
-        <div class="hero">
-            <img class="hero-leaf-left" src="img/decor/top-botanical-left.png" alt="">
-            <img class="hero-leaf-right" src="img/decor/top-botanical-right.png" alt="">
-            <div class="hero-photo-frame">
-                <img class="oval-frame" src="img/decor/oval-frame.png" alt="">
-                <img class="hero-main-photo" src="img/photo.jpg" alt="Александр и Анастасия">
-            </div>
-            <div class="hero-names">Александр & Анастасия</div>
-            <div class="hero-date">18 ИЮЛЯ 2026</div>
-            <div class="hero-subtitle">Мы счастливы будем разделить этот день с вами</div>
-        </div>
-
-        <img class="section-divider" src="img/decor/section-divider.png" alt="">
-
-        <!-- КАЛЕНДАРЬ (огромный) -->
-        <div class="calendar-card">
-            <img class="calendar-dust" src="img/decor/gold-speckles.png" alt="">
-            <h2>наш июль</h2>
-            <div class="calendar-grid">
-                <div>ПН</div><div>ВТ</div><div>СР</div><div>ЧТ</div><div>ПТ</div><div>СБ</div><div>ВС</div>
-                <span></span><span></span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
-                <span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span>
-                <span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span class="wedding-day">18</span><span>19</span>
-            </div>
-            <div class="calendar-text">Скоро мы скажем друг другу «да»</div>
-        </div>
-
-        <img class="section-divider" src="img/decor/section-divider.png" alt="">
-
-        <!-- ТАЙМЛАЙН с цветами -->
-        <div class="story-timeline">
-            <img class="timeline-watercolor" src="img/decor/watercolor-cloud-blue.png" alt="">
-            <svg class="timeline-svg" viewBox="0 0 400 900" preserveAspectRatio="none">
-                <path id="timeline-path" d="M200 20 C30 180, 380 280, 200 450 C30 620, 380 720, 200 880" />
-            </svg>
-            <div class="timeline-event e1">
-                <div class="time">15:00</div>
-                <div class="event-title">Сбор гостей</div>
-            </div>
-            <img class="timeline-flower tf1" src="img/decor/tiny-flower.png" alt="">
-            <div class="timeline-event e2">
-                <div class="time">15:30</div>
-                <div class="event-title">Выездная регистрация</div>
-            </div>
-            <img class="timeline-flower tf2" src="img/decor/tiny-flower.png" alt="">
-            <div class="timeline-event e3">
-                <div class="time">16:00</div>
-                <div class="event-title">Торжественный банкет</div>
-            </div>
-            <img class="timeline-flower tf3" src="img/decor/tiny-flower.png" alt="">
-            <div class="timeline-event e4">
-                <div class="time">21:30</div>
-                <div class="event-title">Окончание вечера</div>
-            </div>
-            <img class="timeline-flower tf4" src="img/decor/tiny-flower.png" alt="">
-        </div>
-
-        <img class="section-divider" src="img/decor/section-divider.png" alt="">
-
-        <!-- МЕСТО -->
-        <div class="card">
-            <h2>Место проведения</h2>
-            <p><strong>Капитан club</strong><br>Речной пр., 17, Жуковский</p>
-            <div class="map-link">
-                📍 <a href="https://yandex.ru/maps/?text=Капитан%20club%20Жуковский%20Речной%20пр.17" target="_blank">Открыть в Яндекс.Картах</a>
-            </div>
-        </div>
-
-        <!-- ДРЕСС-КОД -->
-        <div class="card">
-            <h2>Дресс-код</h2>
-            <p>Мы будем рады видеть вас в нарядах нежных, воздушных тонов.</p>
-            <div class="dresscode-colors">
-                <div class="color-circle" style="background:#d8e4ef;"></div>
-                <div class="color-circle" style="background:#b7cadb;"></div>
-                <div class="color-circle" style="background:#d8e6dc;"></div>
-                <div class="color-circle" style="background:#cfd7c2;"></div>
-                <div class="color-circle" style="background:#eadfcf;"></div>
-                <div class="color-circle" style="background:#b5967b;"></div>
-            </div>
-            <p>а также все пастельные тона, черный и белый для мужчин</p>
-        </div>
-
-        <!-- ФОРМА RSVP -->
-        <div class="card">
-            <h2>Подтверждение присутствия</h2>
-            <p>Пожалуйста, ответьте до <strong>1 июля 2026</strong>.</p>
-            <img class="footer-ornament" src="img/decor/footer-ornament.png" alt="">
-            <form id="rsvpForm" class="rsvp-form">
-                <input type="text" id="guestName" placeholder="Ваше имя (и всех гостей с вами)" required>
-                <div class="rsvp-section">
-                    <h3>Вы будете на свадьбе?</h3>
-                    <div class="radio-group">
-                        <label><input type="radio" name="attending" value="yes" checked> Да, с радостью!</label>
-                        <label><input type="radio" name="attending" value="no"> К сожалению, нет</label>
-                    </div>
-                </div>
-                <div class="rsvp-section">
-                    <h3>Какой алкоголь предпочитаете?</h3>
-                    <div class="radio-group">
-                        <label><input type="radio" name="drink" value="wine_red"> Вино красное сухое</label>
-                        <label><input type="radio" name="drink" value="wine_white"> Вино белое сухое</label>
-                        <label><input type="radio" name="drink" value="champagne"> Шампанское</label>
-                        <label><input type="radio" name="drink" value="vodka"> Водка</label>
-                        <label><input type="radio" name="drink" value="cognac"> Коньяк</label>
-                        <label><input type="radio" name="drink" value="soft"> Безалкогольные</label>
-                    </div>
-                </div>
-                <input type="text" id="message" placeholder="Ваши пожелания">
-                <button type="submit">Отправить ответ</button>
-            </form>
-        </div>
-
-        <footer style="text-align:center; margin-top: 2rem; font-size:0.7rem; color:#a8bbd0;">
-            <p>С любовью, Александр и Анастасия</p>
-            <p>18 июля 2026</p>
-        </footer>
-        </div>
-    </div>
-</div>
-
-<!-- Фоновая музыка -->
-<audio id="bgMusic" loop>
-    <source src="https://dl.dropbox.com/scl/fi/4radz0teq3s01kl3v58z0/20.mp3?rlkey=5dufsq2jwdc9v43w6yrvudbkm&dl=0" type="audio/mpeg">
-</audio>
-
-<style>
-    /* СТАРТОВЫЙ ЭКРАН В СТИЛЕ РЕФЕРЕНСА */
-    .startscreen {
-        position: fixed;
-        inset: 0;
-
-        background:
-            linear-gradient(rgba(255,252,248,.78), rgba(255,252,248,.78)),
-            url('img/decor/paper-texture-2.jpg');
-
-        background-size: cover;
-
-        z-index: 10000;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        cursor: pointer;
-
-        transition: opacity 1.2s ease;
-        opacity: 1;
-
-        overflow: hidden;
-    }
-
-    .startscreen::before {
-        content: "";
-        position: absolute;
-
-        width: 760px;
-        height: 760px;
-
-        background-image: url('img/decor/watercolor-cloud-blue.png');
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-
-        opacity: .45;
-
-        left: 50%;
-        top: 50%;
-
-        transform: translate(-50%, -50%);
-
-        z-index: 0;
-    }
-
-    .startscreen::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-
-        background-image:
-            url('img/decor/corner-top-left.png'),
-            url('img/decor/corner-bottom-right.png'),
-            url('img/decor/gold-speckles.png');
-
-        background-repeat:
-            no-repeat,
-            no-repeat,
-            repeat;
-
-        background-size:
-            420px auto,
-            420px auto,
-            700px auto;
-
-        background-position:
-            top -70px left -70px,
-            bottom -70px right -70px,
-            center;
-
-        opacity: .62;
-
-        pointer-events: none;
-
-        z-index: 1;
-    }
-
-    .startscreen.hidden {
-        opacity: 0;
-        pointer-events: none;
-    }
-
-    .startscreen-content {
-        position: relative;
-        z-index: 2;
-
-        width: min(86vw, 420px);
-        min-height: 620px;
-
-        padding: 58px 34px 46px;
-
-        background:
-            linear-gradient(rgba(255,255,255,.58), rgba(255,255,255,.58));
-
-        border: 1px solid rgba(216,193,154,.38);
-
-        box-shadow:
-            0 30px 80px rgba(80,70,60,.08);
-
-        text-align: center;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
-        overflow: hidden;
-    }
-
-    .startscreen-content::before {
-        content: "";
-        position: absolute;
-
-        width: 360px;
-        height: 360px;
-
-        background-image: url('img/decor/oval-frame.png');
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-
-        top: 74px;
-        left: 50%;
-
-        transform: translateX(-50%);
-
-        opacity: .95;
-
-        pointer-events: none;
-        z-index: 2;
-    }
 
     .startscreen-content img {
-        position: relative;
-        z-index: 1;
-
-        width: 250px;
-        height: 330px;
-
-        object-fit: cover;
-
-        border-radius: 180px;
-
-        margin-bottom: 54px;
+        width: 100px;
+        border-radius: 50%;
+        margin-bottom: 1rem;
+        opacity: 0.9;
     }
-
     .startscreen-content h2 {
-        position: relative;
-        z-index: 3;
-
         font-family: 'Cormorant Garamond', serif;
-
-        color: #6d7f92;
-
-        font-size: 3.1rem;
-        line-height: .95;
-
-        font-weight: 400;
-
-        margin-bottom: 20px;
+        color: #74879b;
+        font-size: 1.8rem;
+        font-weight: 300;
     }
-
-    .startscreen-content h2::after {
-        content: "Александр & Анастасия";
-        display: block;
-
-        margin-top: 20px;
-
-        font-size: 1.25rem;
-        line-height: 1.2;
-
-        color: #d8c19a;
-
-        letter-spacing: 1px;
-    }
-
     .startscreen-content p {
-        position: relative;
-        z-index: 3;
-
-        color: #8fa0b2;
-
-        font-size: .78rem;
-        letter-spacing: 3px;
-        text-transform: uppercase;
-
-        margin-top: 12px;
+        color: #9aaabd;
+        font-size: 0.9rem;
     }
-
-    .startscreen-content p::before {
-        content: "";
-        display: block;
-
-        width: 120px;
-        height: 42px;
-
-        margin: 0 auto 18px;
-
-        background-image: url('img/decor/section-divider.png');
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-
-        opacity: .65;
-    }
-
     .main-content { opacity: 0; transition: opacity 1.2s ease; }
     .main-content.visible { opacity: 1; }
-    .radio-group { display: flex; flex-wrap: wrap; gap: 1rem; margin: 0.5rem 0; justify-content:center; }
-    .radio-group label { display: flex; align-items: center; gap: 0.4rem; font-size: 0.82rem; color:#6f7f91; }
-    .rsvp-section h3 {
-        font-family: 'Cormorant Garamond', serif;
-        font-size: 1.45rem;
-        font-weight: 400;
-        color: #6d7f92;
-        text-align: center;
-        margin: 1.4rem 0 0.5rem;
-    }
+    .radio-group { display: flex; flex-wrap: wrap; gap: 1rem; margin: 0.5rem 0; }
+    .radio-group label { display: flex; align-items: center; gap: 0.4rem; font-size: 0.9rem; }
+    .rsvp-section h3 { font-size: 1rem; margin: 0.8rem 0 0.3rem; color: #7d8ea1; font-weight: 300; }
     input[type="radio"] { accent-color: #d8c19a; }
 </style>
 
