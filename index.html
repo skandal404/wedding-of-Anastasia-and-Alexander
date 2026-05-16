@@ -9,12 +9,10 @@
     <meta property="og:description" content="Приглашаем вас разделить с нами этот день. 18 июля 2026, Капитан club">
     <meta property="og:image" content="https://placehold.co/1200x630/d9eaff/5d7692?text=Wedding">
     <meta property="og:url" content="https://your-site.ru">
-    <meta name="twitter:card" content="summary_large_image">
     <!-- Шрифты -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
-    <!-- Grain overlay (полупрозрачный шум) -->
     <style>
         * {
             margin: 0;
@@ -24,29 +22,13 @@
 
         body {
             font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(rgba(255,250,245,.92), rgba(255,250,245,.92)),
-                        url('./img/decor/paper-texture-2.jpg');
+            background: linear-gradient(rgba(255,252,248,.96), rgba(255,252,248,.96)),
+                        url('img/decor/paper-texture-2.jpg');
             background-size: cover;
             background-attachment: fixed;
             color: #7d8ea1;
-            line-height: 1.6;
+            line-height: 1.5;
             overflow-x: hidden;
-            position: relative;
-        }
-
-        /* Эффект шума поверх всего */
-        body::after {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJmIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjciIG51bU9jdGF2ZXM9IjMiLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWx0ZXI9InVybCgjZikiIG9wYWNpdHk9IjAuMDYiLz48L3N2Zz4=');
-            background-repeat: repeat;
-            pointer-events: none;
-            z-index: 1000;
-            opacity: 0.15;
         }
 
         .scroll-progress {
@@ -60,150 +42,144 @@
             transition: width 0.1s;
         }
 
+        /* Узкий контейнер — ключевое изменение */
         .container {
-            max-width: 760px;
+            width: 100%;
+            max-width: 620px;
             margin: 0 auto;
-            padding: 2rem 1.5rem;
+            padding: 20px 16px 80px;
             position: relative;
             z-index: 2;
         }
 
-        /* Новая карточка (полупрозрачная, без жёстких границ) */
+        /* Полностью убираем отдельные карточки — всё становится единой композицией */
         .card {
-            background: rgba(255,255,255,0.38);
+            background: rgba(255,255,255,0.42);
             backdrop-filter: blur(4px);
             border-radius: 48px;
-            border: 1px solid rgba(255,255,255,0.45);
-            box-shadow: 0 10px 40px rgba(120,120,120,0.04), inset 0 1px 0 rgba(255,255,255,0.5);
-            padding: 3rem 2rem;
-            margin-bottom: 2rem;
+            border: 1px solid rgba(255,255,255,0.5);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            padding: 2rem 1.8rem;
+            margin-bottom: 1.8rem;
             transition: none;
         }
 
-        /* Убраны все hover-эффекты */
-
         h2 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
-            font-weight: 500;
+            font-size: 1.8rem;
+            font-weight: 400;
             color: #7d8ea1;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
             text-align: center;
             border-bottom: none;
-            display: inline-block;
-            width: auto;
-            letter-spacing: 1px;
+            display: block;
+            letter-spacing: 0.5px;
         }
 
-        /* HERO (полностью переработан) */
+        /* HERO — полностью переделан */
         .hero {
             position: relative;
-            padding: 7rem 2rem 5rem;
-            background: linear-gradient(rgba(255,255,255,.7), rgba(255,255,255,.7)),
-                        url('./img/decor/paper-texture-2.jpg');
-            background-size: cover;
-            border-radius: 60px;
+            padding: 60px 24px 50px;
+            border-radius: 52px;
+            background: rgba(255,255,255,0.45);
+            backdrop-filter: blur(6px);
             overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.03);
-            border: 1px solid rgba(255,255,255,0.5);
-            margin-bottom: 2rem;
+            border: 1px solid rgba(255,255,255,0.6);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            text-align: center;
+            margin-bottom: 1.8rem;
         }
 
         .hero-leaf-left,
         .hero-leaf-right {
             position: absolute;
-            width: 280px;
-            opacity: 0.55;
+            width: 220px;
+            opacity: 0.35;
+            mix-blend-mode: multiply;
             pointer-events: none;
-            z-index: 0;
+            top: -30px;
         }
         .hero-leaf-left {
-            top: -40px;
             left: -40px;
         }
         .hero-leaf-right {
-            top: -40px;
             right: -40px;
             transform: scaleX(-1);
         }
 
         .hero-photo-frame {
-            width: 220px;
-            height: 220px;
-            border-radius: 50%;
+            width: 260px;
+            height: 320px;
+            border-radius: 180px;
             overflow: hidden;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-            padding: 8px;
+            margin: 0 auto 28px;
+            padding: 10px;
             background: rgba(255,255,255,0.65);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            border: 1px solid rgba(255,255,255,0.7);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.03);
         }
         .hero-photo-frame img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 50%;
+            border-radius: 180px;
         }
 
         .hero-names {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 4rem;
-            color: #7d8ea1;
-            margin-top: 2rem;
-            text-align: center;
+            font-size: 2.8rem;
             font-weight: 400;
+            color: #74879b;
             letter-spacing: 1px;
-        }
-        .hero-date {
-            margin-top: 1rem;
-            letter-spacing: 4px;
-            text-align: center;
-            color: #d8c19a;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-        }
-        .hero-subtitle {
-            text-align: center;
-            margin-top: 1rem;
-            color: #9aaabd;
-            font-size: 0.95rem;
+            line-height: 1.1;
+            margin-bottom: 0.5rem;
         }
 
-        /* Календарь */
+        .hero-date {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 4px;
+            color: #d8c19a;
+            text-transform: uppercase;
+            margin-top: 0.8rem;
+        }
+
+        .hero-subtitle {
+            font-size: 0.9rem;
+            color: #9aaabd;
+            margin-top: 1rem;
+        }
+
+        /* КАЛЕНДАРЬ — мягкий, без жёстких границ */
         .calendar-section {
             display: flex;
             justify-content: center;
-            padding: 20px 20px 40px;
+            margin: 1rem 0 1.5rem;
         }
         .calendar-card {
-            position: relative;
-            width: 520px;
-            padding: 60px 40px;
-            border-radius: 160px;
-            background: linear-gradient(rgba(255,255,255,0.55), rgba(255,255,255,0.55)),
-                        url('./img/decor/paper-texture-2.jpg');
-            background-size: cover;
-            border: 1px solid rgba(255,255,255,0.4);
-            box-shadow: 0 10px 50px rgba(0,0,0,0.04);
+            width: 100%;
+            max-width: 500px;
+            border-radius: 140px;
+            padding: 50px 30px;
+            background: rgba(255,255,255,0.35);
             backdrop-filter: blur(4px);
+            border: 1px solid rgba(255,255,255,0.6);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02);
             text-align: center;
-            transition: none;
+            position: relative;
+            overflow: hidden;
         }
         .calendar-dust {
             position: absolute;
             top: 0;
             right: 0;
-            width: 140px;
-            opacity: 0.3;
+            width: 130px;
+            opacity: 0.25;
+            mix-blend-mode: multiply;
             pointer-events: none;
         }
         .calendar-card h2 {
-            font-size: 1.8rem;
-            color: #7d8ea1;
-            border: none;
-            text-transform: uppercase;
-            letter-spacing: 3px;
+            font-size: 1.5rem;
             margin-bottom: 0;
         }
         .calendar-grid {
@@ -211,18 +187,15 @@
             grid-template-columns: repeat(7, 1fr);
             gap: 12px;
             margin-top: 30px;
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 300;
-            letter-spacing: 1px;
+            letter-spacing: 0;
             opacity: 0.85;
-        }
-        .calendar-grid div, .calendar-grid span {
-            text-align: center;
         }
         .wedding-day {
             position: relative;
-            font-weight: bold;
             color: #d8c19a;
+            font-weight: 500;
         }
         .wedding-day::before {
             content: '';
@@ -234,39 +207,38 @@
             animation: pulse 3s infinite;
         }
         @keyframes pulse {
-            0% { transform: scale(0.9); opacity: 0.5; }
-            50% { transform: scale(1.1); opacity: 1; }
-            100% { transform: scale(0.9); opacity: 0.5; }
+            0% { transform: scale(0.8); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(0.8); opacity: 0.5; }
         }
         .calendar-text {
             margin-top: 30px;
+            font-size: 0.85rem;
             font-style: italic;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
             color: #9aaabd;
         }
 
-        /* Таймлайн */
+        /* ТАЙМЛАЙН — нежный, без массивных цифр */
         .story-timeline {
             position: relative;
-            height: 1200px;
-            background: linear-gradient(rgba(255,255,255,0.45), rgba(255,255,255,0.45)),
-                        url('./img/decor/paper-texture-2.jpg');
-            background-size: cover;
+            min-height: 1000px;
+            background: rgba(255,255,255,0.35);
+            backdrop-filter: blur(4px);
             border-radius: 48px;
+            padding: 2rem 1rem;
+            margin: 1.5rem 0;
+            border: 1px solid rgba(255,255,255,0.5);
             overflow: hidden;
-            margin: 60px 0 2rem;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
         }
         .timeline-watercolor {
             position: absolute;
-            width: 500px;
+            width: 400px;
             left: 50%;
-            top: 180px;
+            top: 150px;
             transform: translateX(-50%);
-            opacity: 0.2;
+            opacity: 0.15;
+            mix-blend-mode: multiply;
             pointer-events: none;
-            z-index: 0;
         }
         .timeline-svg {
             position: absolute;
@@ -281,14 +253,12 @@
             stroke-linecap: round;
             stroke-dasharray: 4000;
             stroke-dashoffset: 4000;
-            transition: stroke-dashoffset 0.05s linear;
         }
         .timeline-event {
             position: absolute;
-            color: #7d8ea1;
             max-width: 200px;
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(20px);
             transition: opacity 0.8s ease, transform 0.8s ease;
             z-index: 2;
         }
@@ -296,35 +266,28 @@
             opacity: 1;
             transform: translateY(0);
         }
-        .timeline-flower {
-            position: absolute;
-            width: 28px;
-            opacity: 0.7;
-            pointer-events: none;
-            top: 50%;
-            transform: translateY(-50%);
-            left: -35px;
-        }
-        .e2 .timeline-flower, .e4 .timeline-flower {
-            left: auto;
-            right: -35px;
-        }
-        .e1 { top: 140px; left: 60px; }
-        .e2 { top: 420px; right: 60px; text-align: right; }
-        .e3 { top: 740px; left: 60px; }
-        .e4 { bottom: 140px; right: 60px; text-align: right; }
+        .e1 { top: 140px; left: 20px; }
+        .e2 { top: 380px; right: 20px; text-align: right; }
+        .e3 { top: 660px; left: 20px; }
+        .e4 { bottom: 100px; right: 20px; text-align: right; }
         .time {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 32px;
-            line-height: 1.2;
-            font-weight: 400;
+            font-size: 28px;
             color: #d8c19a;
+            font-weight: 400;
             letter-spacing: 1px;
         }
         .event-title {
-            font-size: 20px;
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 400;
+            font-size: 18px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            color: #7d8ea1;
+        }
+        .timeline-flower {
+            position: absolute;
+            width: 28px;
+            opacity: 0.5;
+            pointer-events: none;
         }
 
         /* Дресс-код */
@@ -333,127 +296,104 @@
             gap: 0.8rem;
             justify-content: center;
             flex-wrap: wrap;
-            margin: 1.5rem 0;
+            margin: 1.2rem 0;
         }
         .color-circle {
             width: 48px;
             height: 48px;
             border-radius: 50%;
-            border: 1px solid rgba(255,255,255,0.7);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            border: 1px solid rgba(255,255,255,0.6);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
             transition: none;
         }
+
+        /* Карта */
         .map-link {
-            background: rgba(252,249,245,0.6);
+            background: rgba(255,255,255,0.4);
             border-radius: 60px;
-            padding: 0.7rem 1rem;
+            padding: 0.6rem 1rem;
             text-align: center;
             margin-top: 1rem;
-            border: 1px solid rgba(255,255,255,0.4);
-            transition: none;
+            border: 1px solid rgba(255,255,255,0.5);
         }
         .map-link a {
             color: #7d8ea1;
             text-decoration: none;
+            font-size: 0.85rem;
         }
 
-        /* RSVP форма */
+        /* Форма RSVP */
         .rsvp-form input[type="text"] {
             width: 100%;
-            padding: 0.9rem 1.2rem;
-            border: 1px solid rgba(216,193,154,0.4);
+            padding: 0.8rem 1.2rem;
+            border: 1px solid rgba(214,190,138,0.2);
             border-radius: 60px;
             font-size: 0.9rem;
-            background: rgba(255,255,255,0.7);
+            background: rgba(255,255,255,0.6);
             outline: none;
             margin: 0.5rem 0;
-            transition: 0.2s;
-        }
-        .rsvp-form input[type="text"]:focus {
-            border-color: #d8c19a;
-            background: white;
         }
         .rsvp-form button {
             background: #d8c19a;
-            color: white;
+            color: #fff;
             border: none;
             padding: 0.8rem;
             border-radius: 60px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             letter-spacing: 1px;
             cursor: pointer;
-            transition: 0.2s;
             width: 100%;
-            margin-top: 0.8rem;
-            font-weight: 400;
-        }
-        .rsvp-form button:hover {
-            background: #c8ad7c;
-            transform: translateY(-1px);
+            margin-top: 0.5rem;
+            transition: none;
+            box-shadow: none;
         }
         .footer-ornament {
-            display: block;
             width: 180px;
-            margin: 0 auto 1.5rem;
-            opacity: 0.6;
+            display: block;
+            margin: 1rem auto 1.5rem;
+            opacity: 0.35;
+            mix-blend-mode: multiply;
         }
 
-        footer {
-            text-align: center;
-            margin-top: 2rem;
-            font-size: 0.7rem;
-            color: #b0bfd0;
-        }
-
-        /* Угловые элементы (из PNG) */
+        /* Угловой декор */
         .site-corner {
             position: fixed;
             pointer-events: none;
             z-index: 0;
-            opacity: 0.5;
+            opacity: 0.25;
+            mix-blend-mode: multiply;
         }
         .corner-1 {
             top: 0;
             left: 0;
-            width: 240px;
+            width: 200px;
         }
         .corner-2 {
             bottom: 0;
             right: 0;
-            width: 240px;
+            width: 200px;
             transform: rotate(180deg);
         }
 
-        /* Анимация fade up */
+        /* Анимация появления */
         .card, .hero, .calendar-card, .story-timeline {
-            animation: fadeUp 0.8s ease both;
+            animation: fadeUp 0.9s ease both;
         }
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Мобильная адаптация */
-        @media (max-width: 760px) {
-            .container { padding: 1.2rem; }
-            .hero { padding: 5rem 1rem 3rem; }
-            .hero-names { font-size: 2.5rem; }
-            .hero-leaf-left, .hero-leaf-right { width: 180px; top: -20px; }
-            .hero-photo-frame { width: 160px; height: 160px; }
-            .calendar-card { width: 100%; border-radius: 80px; padding: 40px 20px; }
-            .calendar-grid { gap: 8px; font-size: 14px; }
-            .wedding-day::before { inset: -8px; }
-            .story-timeline { transform: scale(0.9); height: 1100px; margin-top: 20px; }
+        /* Мобильные поправки */
+        @media (max-width: 600px) {
+            .hero-names { font-size: 2.2rem; }
+            .hero-photo-frame { width: 200px; height: 250px; }
+            .hero-leaf-left, .hero-leaf-right { width: 150px; top: -10px; }
+            .calendar-grid { gap: 8px; font-size: 16px; }
+            .timeline-event { max-width: 160px; }
             .time { font-size: 24px; }
-            .event-title { font-size: 16px; }
-            .timeline-flower { width: 20px; left: -25px; }
-            .e2 .timeline-flower, .e4 .timeline-flower { right: -25px; left: auto; }
-            .e1 { left: 20px; top: 100px; }
-            .e2 { right: 20px; top: 380px; }
-            .e3 { left: 20px; top: 680px; }
-            .e4 { right: 20px; bottom: 100px; }
-            .card { padding: 2rem 1.2rem; }
-            .site-corner { width: 140px; opacity: 0.3; }
+            .event-title { font-size: 14px; }
+            .site-corner { width: 130px; opacity: 0.2; }
         }
     </style>
 </head>
@@ -461,11 +401,11 @@
 
 <div id="progressBar" class="scroll-progress"></div>
 
-<!-- Угловые декоративные элементы (замените на свои PNG) -->
-<img src="img/decor/corner-top-left.png" class="site-corner corner-1" alt="decor" style="display:none;"> <!-- пока нет файла, временно скрыто -->
-<img src="img/decor/corner-bottom-right.png" class="site-corner corner-2" alt="decor" style="display:none;">
+<!-- Угловой декор (PNG) -->
+<img src="img/corner-top-left.png" class="site-corner corner-1" alt="decor">
+<img src="img/corner-bottom-right.png" class="site-corner corner-2" alt="decor">
 
-<!-- СТАРТОВЫЙ ЭКРАН (оставлен как ранее) -->
+<!-- СТАРТОВЫЙ ЭКРАН (без изменений) -->
 <div id="startscreen" class="startscreen">
     <div class="startscreen-content">
         <img src="img/photo.jpg" alt="Свадьба">
@@ -478,12 +418,12 @@
 <div id="mainContent" class="main-content">
     <div class="container">
 
-        <!-- НОВЫЙ HERO -->
+        <!-- HERO — новая композиция -->
         <div class="hero">
-            <img class="hero-leaf-left" src="./img/decor/top-botanical-left.png" alt="">
-            <img class="hero-leaf-right" src="./img/decor/top-botanical-right.png" alt="">
+            <img class="hero-leaf-left" src="img/decor/top-botanical-left.png" alt="">
+            <img class="hero-leaf-right" src="img/decor/top-botanical-right.png" alt="">
             <div class="hero-photo-frame">
-                <img src="./img/photo.jpg" alt="Александр и Анастасия">
+                <img src="img/photo.jpg" alt="Александр и Анастасия">
             </div>
             <div class="hero-names">Александр & Анастасия</div>
             <div class="hero-date">18 ИЮЛЯ 2026</div>
@@ -491,47 +431,41 @@
         </div>
 
         <!-- КАЛЕНДАРЬ -->
-        <section class="calendar-section">
-            <div class="calendar-card">
-                <img class="calendar-dust" src="./img/decor/gold-speckles.png" alt="">
-                <h2>наш<br>июль</h2>
-                <div class="calendar-grid">
-                    <div>ПН</div><div>ВТ</div><div>СР</div><div>ЧТ</div><div>ПТ</div><div>СБ</div><div>ВС</div>
-                    <span></span><span></span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
-                    <span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span>
-                    <span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span class="wedding-day">18</span><span>19</span>
-                </div>
-                <p class="calendar-text">Скоро мы скажем друг другу «да»</p>
+        <div class="calendar-card">
+            <img class="calendar-dust" src="img/gold-dust.png" alt="">
+            <h2>наш июль</h2>
+            <div class="calendar-grid">
+                <div>ПН</div><div>ВТ</div><div>СР</div><div>ЧТ</div><div>ПТ</div><div>СБ</div><div>ВС</div>
+                <span></span><span></span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+                <span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span>
+                <span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span class="wedding-day">18</span><span>19</span>
             </div>
-        </section>
+            <div class="calendar-text">Скоро мы скажем друг другу «да»</div>
+        </div>
 
         <!-- ТАЙМЛАЙН -->
-        <section class="story-timeline">
-            <img class="timeline-watercolor" src="./img/decor/watercolor-cloud-blue.png" alt="">
-            <svg class="timeline-svg" viewBox="0 0 500 1200" preserveAspectRatio="none">
-                <path id="timeline-path" d="M250 0 C50 250, 450 350, 250 600 C50 850, 450 950, 250 1200" />
+        <div class="story-timeline">
+            <img class="timeline-watercolor" src="img/watercolor-blue.png" alt="">
+            <svg class="timeline-svg" viewBox="0 0 400 900" preserveAspectRatio="none">
+                <path id="timeline-path" d="M200 20 C30 180, 380 280, 200 450 C30 620, 380 720, 200 880" />
             </svg>
             <div class="timeline-event e1">
-                <img class="timeline-flower" src="./img/decor/tiny-flower.png" alt="">
                 <div class="time">15:00</div>
                 <div class="event-title">Сбор гостей</div>
             </div>
             <div class="timeline-event e2">
-                <img class="timeline-flower" src="./img/decor/tiny-flower.png" alt="">
                 <div class="time">15:30</div>
                 <div class="event-title">Выездная регистрация</div>
             </div>
             <div class="timeline-event e3">
-                <img class="timeline-flower" src="./img/decor/tiny-flower.png" alt="">
                 <div class="time">16:00</div>
                 <div class="event-title">Торжественный банкет</div>
             </div>
             <div class="timeline-event e4">
-                <img class="timeline-flower" src="./img/decor/tiny-flower.png" alt="">
                 <div class="time">21:30</div>
                 <div class="event-title">Окончание вечера</div>
             </div>
-        </section>
+        </div>
 
         <!-- МЕСТО -->
         <div class="card">
@@ -545,7 +479,7 @@
         <!-- ДРЕСС-КОД -->
         <div class="card">
             <h2>Дресс-код</h2>
-            <p>Мы будем рады видеть вас в нарядах нежных, воздушных тонов. Основные цвета нашей свадьбы:</p>
+            <p>Мы будем рады видеть вас в нарядах нежных, воздушных тонов.</p>
             <div class="dresscode-colors">
                 <div class="color-circle" style="background:#d8e4ef;"></div>
                 <div class="color-circle" style="background:#b7cadb;"></div>
@@ -554,14 +488,14 @@
                 <div class="color-circle" style="background:#eadfcf;"></div>
                 <div class="color-circle" style="background:#b5967b;"></div>
             </div>
-            <p><strong>а также все пастельные тона, черный и белый для мужчин</strong> — создадим вместе уютную атмосферу!</p>
+            <p>а также все пастельные тона, черный и белый для мужчин</p>
         </div>
 
-        <!-- ФОРМА RSVP с орнаментом -->
+        <!-- ФОРМА RSVP -->
         <div class="card">
-            <img class="footer-ornament" src="./img/decor/footer-ornament.png" alt="">
             <h2>Подтверждение присутствия</h2>
             <p>Пожалуйста, ответьте до <strong>1 июля 2026</strong>.</p>
+            <img class="footer-ornament" src="img/decor/footer-ornament.png" alt="">
             <form id="rsvpForm" class="rsvp-form">
                 <input type="text" id="guestName" placeholder="Ваше имя (и всех гостей с вами)" required>
                 <div class="rsvp-section">
@@ -582,24 +516,23 @@
                         <label><input type="radio" name="drink" value="soft"> Безалкогольные</label>
                     </div>
                 </div>
-                <input type="text" id="message" placeholder="Ваши пожелания или особые предпочтения">
+                <input type="text" id="message" placeholder="Ваши пожелания">
                 <button type="submit">Отправить ответ</button>
             </form>
         </div>
 
-        <footer>
+        <footer style="text-align:center; margin-top: 2rem; font-size:0.7rem; color:#a8bbd0;">
             <p>С любовью, Александр и Анастасия</p>
             <p>18 июля 2026</p>
         </footer>
     </div>
 </div>
 
-<!-- Фоновая музыка -->
 <audio id="bgMusic" loop>
     <source src="https://dl.dropbox.com/scl/fi/4radz0teq3s01kl3v58z0/20.mp3?rlkey=5dufsq2jwdc9v43w6yrvudbkm&dl=0" type="audio/mpeg">
 </audio>
 
-<!-- Стили стартового экрана (без изменений) -->
+<!-- Стили стартового экрана -->
 <style>
     .startscreen {
         position: fixed;
@@ -609,61 +542,49 @@
         height: 100%;
         background: #fffdfb;
         border: 1px solid rgba(214,190,138,.3);
-        box-shadow: 0 0 0 8px rgba(214,190,138,0.1), 0 2px 10px rgba(0,0,0,.03);
+        box-shadow: 0 0 0 8px rgba(214,190,138,0.05), 0 2px 10px rgba(0,0,0,.02);
         z-index: 10000;
         display: flex;
         align-items: center;
         justify-content: center;
         cursor: pointer;
-        transition: opacity 1.5s ease;
+        transition: opacity 1.2s ease;
         opacity: 1;
-        text-align: center;
         flex-direction: column;
     }
-    .startscreen.hidden {
-        opacity: 0;
-        pointer-events: none;
-    }
+    .startscreen.hidden { opacity: 0; pointer-events: none; }
     .startscreen-content {
         max-width: 90%;
         padding: 2rem;
-        background: #fffdfb;
-        border-radius: 32px;
-        border: 1px solid rgba(214,190,138,.15);
+        background: rgba(255,255,255,0.8);
+        border-radius: 48px;
+        border: 1px solid rgba(214,190,138,.2);
+        text-align: center;
     }
     .startscreen-content img {
-        width: 120px;
-        margin-bottom: 1.5rem;
+        width: 100px;
         border-radius: 50%;
-        opacity: 0.8;
+        margin-bottom: 1rem;
+        opacity: 0.9;
     }
     .startscreen-content h2 {
-        font-size: 2rem;
-        color: #5d7692;
-        margin-bottom: 1rem;
         font-family: 'Cormorant Garamond', serif;
+        color: #74879b;
+        font-size: 1.8rem;
     }
     .startscreen-content p {
-        font-size: 1rem;
-        color: #8aa3b8;
-        border-top: 1px solid #eae3d6;
-        border-bottom: 1px solid #eae3d6;
-        display: inline-block;
-        padding: 0.5rem 1rem;
+        color: #9aaabd;
+        font-size: 0.9rem;
     }
-    .main-content {
-        opacity: 0;
-        transition: opacity 1.2s ease;
-        position: relative;
-        z-index: 2;
-    }
-    .main-content.visible {
-        opacity: 1;
-    }
+    .main-content { opacity: 0; transition: opacity 1.2s ease; }
+    .main-content.visible { opacity: 1; }
+    .radio-group { display: flex; flex-wrap: wrap; gap: 1rem; margin: 0.5rem 0; }
+    .radio-group label { display: flex; align-items: center; gap: 0.4rem; font-size: 0.9rem; }
+    .rsvp-section h3 { font-size: 1rem; margin: 0.8rem 0 0.3rem; color: #7d8ea1; font-weight: 400; }
+    input[type="radio"] { accent-color: #d8c19a; }
 </style>
 
 <script>
-    // Стартовый экран и музыка
     const startScreen = document.getElementById('startscreen');
     const mainContent = document.getElementById('mainContent');
     const bgMusic = document.getElementById('bgMusic');
@@ -671,8 +592,8 @@
     function startSite() {
         if (musicStarted) return;
         musicStarted = true;
-        bgMusic.volume = 0.3;
-        bgMusic.play().catch(e => console.log("Автоплей заблокирован"));
+        bgMusic.volume = 0.25;
+        bgMusic.play().catch(e => console.log("autoplay blocked"));
         startScreen.classList.add('hidden');
         mainContent.classList.add('visible');
         document.body.style.overflow = 'auto';
@@ -680,15 +601,13 @@
     startScreen.addEventListener('click', startSite);
     document.body.style.overflow = 'hidden';
 
-    // Ползунок прокрутки
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', () => {
         const winScroll = document.documentElement.scrollTop;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const height = document.documentElement.scrollHeight - window.innerHeight;
         const scrolled = (winScroll / height) * 100;
         document.getElementById('progressBar').style.width = scrolled + '%';
     });
 
-    // Анимация линии таймлайна
     const path = document.querySelector("#timeline-path");
     if (path) {
         const length = path.getTotalLength();
@@ -702,36 +621,23 @@
         });
     }
 
-    // Появление событий таймлайна
     const events = document.querySelectorAll('.timeline-event');
     function revealTimeline() {
-        events.forEach(event => {
-            const top = event.getBoundingClientRect().top;
-            if (top < window.innerHeight * 0.85) {
-                event.classList.add('visible');
-            }
+        events.forEach(e => {
+            const top = e.getBoundingClientRect().top;
+            if (top < window.innerHeight * 0.85) e.classList.add('visible');
         });
     }
     window.addEventListener('scroll', revealTimeline);
     revealTimeline();
 
-    // Форма RSVP
     const form = document.getElementById('rsvpForm');
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', (e) => {
         e.preventDefault();
         const name = document.getElementById('guestName').value.trim();
         const attending = document.querySelector('input[name="attending"]:checked');
-        const drink = document.querySelector('input[name="drink"]:checked');
-        if (!name) {
-            alert('Пожалуйста, укажите ваше имя.');
-            return;
-        }
-        if (!attending) {
-            alert('Пожалуйста, выберите, будете ли вы на свадьбе.');
-            return;
-        }
-        alert(`Спасибо, ${name}! Ваш ответ принят. ${drink ? 'Ваш выбор алкоголя учтён.' : ''}`);
-        console.log({ name, attending: attending.value, drink: drink ? drink.value : 'не выбран' });
+        if (!name || !attending) return alert('Укажите имя и ответ');
+        alert(`Спасибо, ${name}! Ваш ответ принят.`);
         form.reset();
         document.querySelector('input[name="attending"][value="yes"]').checked = true;
     });
