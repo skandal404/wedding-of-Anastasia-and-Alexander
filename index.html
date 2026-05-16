@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Александр и Анастасия | Свадебное приглашение</title>
-    <!-- Open Graph для красивой ссылки -->
+    <!-- Open Graph -->
     <meta property="og:title" content="Александр & Анастасия | Свадебное приглашение">
     <meta property="og:description" content="Приглашаем вас разделить с нами этот день. 18 июля 2026, Капитан club">
     <meta property="og:image" content="https://placehold.co/1200x630/d9eaff/5d7692?text=Wedding">
@@ -24,7 +24,7 @@
         body {
             font-family: 'Montserrat', sans-serif;
             background: linear-gradient(rgba(255,250,245,.94), rgba(255,250,245,.94)),
-                        url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" opacity="0.08"%3E%3Cpath fill="none" stroke="%23a07e56" stroke-width="0.5" d="M10 10 L190 10 M10 30 L190 30 M10 50 L190 50 M10 70 L190 70 M10 90 L190 90 M10 110 L190 110 M10 130 L190 130 M10 150 L190 150 M10 170 L190 170 M10 190 L190 190 M10 10 L10 190 M30 10 L30 190 M50 10 L50 190 M70 10 L70 190 M90 10 L90 190 M110 10 L110 190 M130 10 L130 190 M150 10 L150 190 M170 10 L170 190 M190 10 L190 190"%3E%3C/svg%3E');
+                        url('./img/paper-texture.jpg');
             background-size: cover;
             background-color: #faf7f2;
             color: #5f7690;
@@ -78,7 +78,7 @@
             padding-bottom: 0.3rem;
         }
 
-        /* HERO с ветками и акварелью */
+        /* HERO */
         .hero {
             position: relative;
             text-align: center;
@@ -99,7 +99,7 @@
             top: -80px;
             left: 50%;
             transform: translateX(-50%);
-            opacity: 0.12;
+            opacity: 0.18;
             z-index: 0;
             pointer-events: none;
         }
@@ -165,7 +165,7 @@
             border-radius: 220px;
             border: 1px solid rgba(214,190,138,.25);
             background: linear-gradient(rgba(205,220,210,.35), rgba(245,240,232,.72)),
-                        url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" opacity="0.15"%3E%3Cpath fill="none" stroke="%23c8a96b" stroke-width="0.5" d="M0 100 L200 100 M100 0 L100 200"/%3E%3C/svg%3E');
+                        url('./img/paper-texture.jpg');
             background-size: cover;
             color: #5d7692;
             text-align: center;
@@ -239,7 +239,7 @@
             position: relative;
             height: 1300px;
             background: linear-gradient(rgba(230,236,228,.55), rgba(250,246,240,.92)),
-                        url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" opacity="0.12"%3E%3Cpath fill="none" stroke="%23c8a96b" stroke-width="0.3" d="M0 50 L200 50 M0 150 L200 150 M50 0 L50 200 M150 0 L150 200"/%3E%3C/svg%3E');
+                        url('./img/paper-texture.jpg');
             background-size: cover;
             border-radius: 40px;
             overflow: hidden;
@@ -392,12 +392,12 @@
             color: #a8bbd0;
         }
 
-        /* Угловой декор (ботанический) */
+        /* Угловые декоративные элементы */
         .site-corner {
             position: fixed;
             pointer-events: none;
             z-index: 0;
-            opacity: 0.6;
+            opacity: 0.65;
         }
         .corner-1 {
             top: 0;
@@ -411,7 +411,7 @@
             transform: rotate(180deg);
         }
 
-        /* Анимация появления блоков */
+        /* Анимация появления */
         .card, .hero, .calendar-card, .story-timeline {
             animation: fadeUp 0.9s ease both;
         }
@@ -463,22 +463,14 @@
 
 <div id="progressBar" class="scroll-progress"></div>
 
-<!-- Угловой декор (SVG, но вы можете заменить на PNG) -->
-<svg class="site-corner corner-1" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M20 20 L80 20 M50 10 L50 50 M30 30 L70 70" stroke="#c8a96b" stroke-width="1.5" stroke-opacity="0.6"/>
-    <circle cx="25" cy="25" r="6" fill="#d6be8a" fill-opacity="0.4"/>
-    <path d="M120 10 Q140 40 130 70" stroke="#c8a96b" stroke-width="1.2" fill="none" stroke-opacity="0.4"/>
-</svg>
-<svg class="site-corner corner-2" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M20 20 L80 20 M50 10 L50 50 M30 30 L70 70" stroke="#c8a96b" stroke-width="1.5" stroke-opacity="0.6"/>
-    <circle cx="25" cy="25" r="6" fill="#d6be8a" fill-opacity="0.4"/>
-    <path d="M120 10 Q140 40 130 70" stroke="#c8a96b" stroke-width="1.2" fill="none" stroke-opacity="0.4"/>
-</svg>
+<!-- Угловой декор -->
+<img src="./img/corner-top-left.png" class="site-corner corner-1" alt="decor">
+<img src="./img/corner-bottom-right.png" class="site-corner corner-2" alt="decor">
 
-<!-- СТАРТОВЫЙ ЭКРАН (с золотой рамкой) -->
+<!-- СТАРТОВЫЙ ЭКРАН -->
 <div id="startscreen" class="startscreen">
     <div class="startscreen-content">
-        <img src="https://placehold.co/200x200/d9eaff/5d7692?text=❤️" alt="Свадьба">
+        <img src="./img/photo.jpg" alt="Свадьба">
         <h2>Приглашение на свадьбу</h2>
         <p>Нажмите в любом месте, чтобы открыть</p>
     </div>
@@ -488,38 +480,22 @@
 <div id="mainContent" class="main-content">
     <div class="container">
 
-        <!-- HERO с ботаническим декором -->
+        <!-- HERO -->
         <div class="hero">
-            <svg class="hero-watercolor" viewBox="0 0 200 200" fill="none">
-                <circle cx="100" cy="100" r="80" fill="#aac9df" fill-opacity="0.3" filter="blur(20px)"/>
-            </svg>
-            <svg class="hero-branch-left" viewBox="0 0 100 200">
-                <path d="M10 180 Q30 120 20 80 Q10 40 40 10" stroke="#8aa3b8" stroke-width="1.5" fill="none"/>
-                <circle cx="35" cy="25" r="3" fill="#c8a96b" fill-opacity="0.6"/>
-                <circle cx="22" cy="70" r="3" fill="#c8a96b" fill-opacity="0.6"/>
-            </svg>
-            <svg class="hero-branch-right" viewBox="0 0 100 200">
-                <path d="M10 180 Q30 120 20 80 Q10 40 40 10" stroke="#8aa3b8" stroke-width="1.5" fill="none"/>
-                <circle cx="35" cy="25" r="3" fill="#c8a96b" fill-opacity="0.6"/>
-                <circle cx="22" cy="70" r="3" fill="#c8a96b" fill-opacity="0.6"/>
-            </svg>
+            <img class="hero-watercolor" src="./img/watercolor-blue.png" alt="">
+            <img class="hero-branch-left" src="./img/branch-left.png" alt="">
+            <img class="hero-branch-right" src="./img/branch-right.png" alt="">
             <div class="photo-wrapper">
-                <img src="https://placehold.co/400x400/d9eaff/5d7692?text=photo" alt="Александр и Анастасия">
+                <img src="./img/photo.jpg" alt="Александр и Анастасия">
             </div>
             <div class="names">Александр & Анастасия</div>
             <div class="sub">Приглашаем вас разделить с нами этот день</div>
         </div>
 
-        <!-- КАЛЕНДАРЬ с золотой пыльцой -->
+        <!-- КАЛЕНДАРЬ -->
         <section class="calendar-section">
             <div class="calendar-card">
-                <svg class="calendar-dust" viewBox="0 0 200 200" fill="none">
-                    <circle cx="30" cy="40" r="2" fill="#c8a96b" fill-opacity="0.6"/>
-                    <circle cx="70" cy="20" r="3" fill="#c8a96b" fill-opacity="0.5"/>
-                    <circle cx="120" cy="50" r="2" fill="#c8a96b" fill-opacity="0.7"/>
-                    <circle cx="160" cy="80" r="2.5" fill="#c8a96b" fill-opacity="0.4"/>
-                    <circle cx="180" cy="30" r="1.5" fill="#c8a96b" fill-opacity="0.8"/>
-                </svg>
+                <img class="calendar-dust" src="./img/gold-dust.png" alt="">
                 <h2>наш<br>июль</h2>
                 <div class="calendar-grid">
                     <div>ПН</div><div>ВТ</div><div>СР</div><div>ЧТ</div><div>ПТ</div><div>СБ</div><div>ВС</div>
@@ -531,11 +507,9 @@
             </div>
         </section>
 
-        <!-- ТАЙМЛАЙН с акварельным пятном -->
+        <!-- ТАЙМЛАЙН -->
         <section class="story-timeline">
-            <svg class="timeline-watercolor" viewBox="0 0 400 400" fill="none">
-                <ellipse cx="200" cy="200" rx="150" ry="100" fill="#d8e6dc" fill-opacity="0.4" filter="blur(30px)"/>
-            </svg>
+            <img class="timeline-watercolor" src="./img/watercolor-blue.png" alt="">
             <svg class="timeline-svg" viewBox="0 0 500 1200" preserveAspectRatio="none">
                 <path id="timeline-path" d="M250 0 C50 250, 450 350, 250 600 C50 850, 450 950, 250 1200" />
             </svg>
@@ -566,7 +540,7 @@
             </div>
         </div>
 
-        <!-- ДРЕСС-КОД (круглые цвета) -->
+        <!-- ДРЕСС-КОД -->
         <div class="card">
             <h2>Дресс-код</h2>
             <p>Мы будем рады видеть вас в нарядах нежных, воздушных тонов. Основные цвета нашей свадьбы:</p>
@@ -581,7 +555,7 @@
             <p><strong>а также все пастельные тона, черный и белый для мужчин</strong> — создадим вместе уютную атмосферу!</p>
         </div>
 
-        <!-- ФОРМА RSVP -->
+        <!-- ФОРМА -->
         <div class="card">
             <h2>Подтверждение присутствия</h2>
             <p>Пожалуйста, ответьте до <strong>1 июля 2026</strong>.</p>
@@ -622,7 +596,7 @@
     <source src="https://dl.dropbox.com/scl/fi/4radz0teq3s01kl3v58z0/20.mp3?rlkey=5dufsq2jwdc9v43w6yrvudbkm&dl=0" type="audio/mpeg">
 </audio>
 
-<!-- Стили для стартового экрана (с золотой рамкой) -->
+<!-- Стили для стартового экрана -->
 <style>
     .startscreen {
         position: fixed;
@@ -703,7 +677,7 @@
     startScreen.addEventListener('click', startSite);
     document.body.style.overflow = 'hidden';
 
-    // ПОЛЗУНОК ПРОКРУТКИ
+    // ПОЛЗУНОК
     window.addEventListener('scroll', function() {
         const winScroll = document.documentElement.scrollTop;
         const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -711,7 +685,7 @@
         document.getElementById('progressBar').style.width = scrolled + '%';
     });
 
-    // АНИМАЦИЯ ЛИНИИ ТАЙМИНГА
+    // АНИМАЦИЯ ЛИНИИ
     const path = document.querySelector("#timeline-path");
     if (path) {
         const length = path.getTotalLength();
@@ -725,7 +699,7 @@
         });
     }
 
-    // ПОЯВЛЕНИЕ СОБЫТИЙ ПРИ СКРОЛЛЕ
+    // ПОЯВЛЕНИЕ СОБЫТИЙ
     const events = document.querySelectorAll('.timeline-event');
     function revealTimeline() {
         events.forEach(event => {
@@ -738,7 +712,7 @@
     window.addEventListener('scroll', revealTimeline);
     revealTimeline();
 
-    // ФОРМА RSVP
+    // ФОРМА
     const form = document.getElementById('rsvpForm');
     form.addEventListener('submit', function(e) {
         e.preventDefault();
