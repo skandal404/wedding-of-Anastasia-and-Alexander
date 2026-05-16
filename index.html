@@ -33,11 +33,17 @@
         /* Глобальное акварельное пятно */
         .global-watercolor {
             position: fixed;
-            width: 1400px;
+
+            width: 1100px;
+            max-width: none;
+
             left: 50%;
-            top: 200px;
+            top: 120px;
+
             transform: translateX(-50%);
-            opacity: 0.32;
+
+            opacity: 0.22;
+
             z-index: 0;
             pointer-events: none;
         }
@@ -76,14 +82,18 @@
 
         /* Общие блоки — без блюра, плотный фон */
         .card {
-            background: linear-gradient(rgba(255,255,255,.82), rgba(255,255,255,.82));
-            border-radius: 24px;
-            border: 1px solid rgba(214,190,138,.2);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
-            padding: 2rem 1.8rem;
-            margin-bottom: 1rem;
+            background: transparent;
+            border-radius: 0;
+            border: none;
+            box-shadow: none;
+
+            padding: 3.5rem 1.6rem;
+            margin-bottom: 0;
+
             position: relative;
-            overflow: hidden;
+            overflow: visible;
+
+            text-align: center;
         }
 
         /* Акварельное пятно под каждым блоком (вместо разделителей) */
@@ -104,6 +114,54 @@
             right: -60px;
         }
 
+        .invitation-card {
+            position: relative;
+            overflow: hidden;
+
+            background:
+                linear-gradient(rgba(255,255,255,.72), rgba(255,255,255,.72)),
+                url('img/decor/paper-texture-2.jpg');
+
+            border: 1px solid rgba(216,193,154,.35);
+
+            box-shadow:
+                0 30px 80px rgba(80,70,60,.08);
+
+            padding: 24px 18px 40px;
+
+            border-radius: 0;
+        }
+
+        .invitation-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+
+            background-image:
+                url('img/decor/gold-speckles.png'),
+                url('img/decor/watercolor-cloud-blue.png');
+
+            background-size:
+                100% auto,
+                900px auto;
+
+            background-position:
+                top center,
+                center 220px;
+
+            background-repeat: repeat-y, no-repeat;
+
+            opacity: .32;
+
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .invitation-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
         h2 {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.8rem;
@@ -118,18 +176,23 @@
         /* HERO — огромный, с большими листьями */
         .hero {
             position: relative;
-            padding: 120px 40px 90px;
-            min-height: 880px;
+
+            padding: 90px 20px 80px;
+            min-height: auto;
+
             display: flex;
             flex-direction: column;
             justify-content: center;
-            background: linear-gradient(rgba(255,255,255,.82), rgba(255,255,255,.82));
-            border-radius: 24px;
-            border: 1px solid rgba(214,190,138,.2);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+
+            background: transparent;
+            border-radius: 0;
+            border: none;
+            box-shadow: none;
+
             text-align: center;
-            margin-bottom: 1rem;
-            overflow: hidden;
+            margin-bottom: 0;
+
+            overflow: visible;
         }
 
         .hero-leaf-left,
@@ -269,12 +332,15 @@
         /* ТАЙМЛАЙН */
         .story-timeline {
             position: relative;
-            min-height: 1000px;
-            background: linear-gradient(rgba(255,255,255,.82), rgba(255,255,255,.82));
-            border-radius: 24px;
+
+            min-height: 980px;
+
+            background: transparent;
+            border-radius: 0;
             padding: 2rem 1rem;
-            margin: 0.5rem 0;
-            border: 1px solid rgba(214,190,138,.2);
+            margin: 0;
+
+            border: none;
             overflow: hidden;
         }
         .timeline-watercolor {
@@ -404,19 +470,21 @@
         .site-corner {
             position: fixed;
             pointer-events: none;
-            z-index: 0;
-            opacity: 0.4;
+            z-index: 1;
+            opacity: 0.55;
         }
+
         .corner-1 {
-            top: 0;
-            left: 0;
-            width: 280px;
+            top: -40px;
+            left: -40px;
+            width: 360px;
         }
+
         .corner-2 {
-            bottom: 0;
-            right: 0;
-            width: 280px;
-            transform: rotate(180deg);
+            bottom: -40px;
+            right: -40px;
+            width: 360px;
+            transform: none;
         }
 
         /* Анимация появления */
@@ -475,6 +543,7 @@
 <!-- ОСНОВНОЙ КОНТЕНТ -->
 <div id="mainContent" class="main-content">
     <div class="container">
+        <div class="invitation-card">
 
         <!-- HERO (огромный) -->
         <div class="hero">
@@ -489,6 +558,8 @@
             <div class="hero-subtitle">Мы счастливы будем разделить этот день с вами</div>
         </div>
 
+        <img class="section-divider" src="img/decor/section-divider.png" alt="">
+
         <!-- КАЛЕНДАРЬ (огромный) -->
         <div class="calendar-card">
             <img class="calendar-dust" src="img/decor/gold-speckles.png" alt="">
@@ -501,6 +572,8 @@
             </div>
             <div class="calendar-text">Скоро мы скажем друг другу «да»</div>
         </div>
+
+        <img class="section-divider" src="img/decor/section-divider.png" alt="">
 
         <!-- ТАЙМЛАЙН с цветами -->
         <div class="story-timeline">
@@ -529,6 +602,8 @@
             </div>
             <img class="timeline-flower tf4" src="img/decor/tiny-flower.png" alt="">
         </div>
+
+        <img class="section-divider" src="img/decor/section-divider.png" alt="">
 
         <!-- МЕСТО -->
         <div class="card">
@@ -588,6 +663,7 @@
             <p>С любовью, Александр и Анастасия</p>
             <p>18 июля 2026</p>
         </footer>
+        </div>
     </div>
 </div>
 
@@ -597,55 +673,226 @@
 </audio>
 
 <style>
-    /* Стили стартового экрана */
+    /* СТАРТОВЫЙ ЭКРАН В СТИЛЕ РЕФЕРЕНСА */
     .startscreen {
         position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: #fffdfb;
-        border: 1px solid rgba(214,190,138,.3);
-        box-shadow: 0 0 0 8px rgba(214,190,138,0.05), 0 2px 10px rgba(0,0,0,.02);
+        inset: 0;
+
+        background:
+            linear-gradient(rgba(255,252,248,.78), rgba(255,252,248,.78)),
+            url('img/decor/paper-texture-2.jpg');
+
+        background-size: cover;
+
         z-index: 10000;
+
         display: flex;
         align-items: center;
         justify-content: center;
+
         cursor: pointer;
+
         transition: opacity 1.2s ease;
         opacity: 1;
-        flex-direction: column;
+
+        overflow: hidden;
     }
-    .startscreen.hidden { opacity: 0; pointer-events: none; }
+
+    .startscreen::before {
+        content: "";
+        position: absolute;
+
+        width: 760px;
+        height: 760px;
+
+        background-image: url('img/decor/watercolor-cloud-blue.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        opacity: .45;
+
+        left: 50%;
+        top: 50%;
+
+        transform: translate(-50%, -50%);
+
+        z-index: 0;
+    }
+
+    .startscreen::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+
+        background-image:
+            url('img/decor/corner-top-left.png'),
+            url('img/decor/corner-bottom-right.png'),
+            url('img/decor/gold-speckles.png');
+
+        background-repeat:
+            no-repeat,
+            no-repeat,
+            repeat;
+
+        background-size:
+            420px auto,
+            420px auto,
+            700px auto;
+
+        background-position:
+            top -70px left -70px,
+            bottom -70px right -70px,
+            center;
+
+        opacity: .62;
+
+        pointer-events: none;
+
+        z-index: 1;
+    }
+
+    .startscreen.hidden {
+        opacity: 0;
+        pointer-events: none;
+    }
+
     .startscreen-content {
-        max-width: 90%;
-        padding: 2rem;
-        background: rgba(255,255,255,0.8);
-        border-radius: 48px;
-        border: 1px solid rgba(214,190,138,.2);
+        position: relative;
+        z-index: 2;
+
+        width: min(86vw, 420px);
+        min-height: 620px;
+
+        padding: 58px 34px 46px;
+
+        background:
+            linear-gradient(rgba(255,255,255,.58), rgba(255,255,255,.58));
+
+        border: 1px solid rgba(216,193,154,.38);
+
+        box-shadow:
+            0 30px 80px rgba(80,70,60,.08);
+
         text-align: center;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        overflow: hidden;
     }
+
+    .startscreen-content::before {
+        content: "";
+        position: absolute;
+
+        width: 360px;
+        height: 360px;
+
+        background-image: url('img/decor/oval-frame.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        top: 74px;
+        left: 50%;
+
+        transform: translateX(-50%);
+
+        opacity: .95;
+
+        pointer-events: none;
+        z-index: 2;
+    }
+
     .startscreen-content img {
-        width: 100px;
-        border-radius: 50%;
-        margin-bottom: 1rem;
-        opacity: 0.9;
+        position: relative;
+        z-index: 1;
+
+        width: 250px;
+        height: 330px;
+
+        object-fit: cover;
+
+        border-radius: 180px;
+
+        margin-bottom: 54px;
     }
+
     .startscreen-content h2 {
+        position: relative;
+        z-index: 3;
+
         font-family: 'Cormorant Garamond', serif;
-        color: #74879b;
-        font-size: 1.8rem;
-        font-weight: 300;
+
+        color: #6d7f92;
+
+        font-size: 3.1rem;
+        line-height: .95;
+
+        font-weight: 400;
+
+        margin-bottom: 20px;
     }
+
+    .startscreen-content h2::after {
+        content: "Александр & Анастасия";
+        display: block;
+
+        margin-top: 20px;
+
+        font-size: 1.25rem;
+        line-height: 1.2;
+
+        color: #d8c19a;
+
+        letter-spacing: 1px;
+    }
+
     .startscreen-content p {
-        color: #9aaabd;
-        font-size: 0.9rem;
+        position: relative;
+        z-index: 3;
+
+        color: #8fa0b2;
+
+        font-size: .78rem;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+
+        margin-top: 12px;
     }
+
+    .startscreen-content p::before {
+        content: "";
+        display: block;
+
+        width: 120px;
+        height: 42px;
+
+        margin: 0 auto 18px;
+
+        background-image: url('img/decor/section-divider.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        opacity: .65;
+    }
+
     .main-content { opacity: 0; transition: opacity 1.2s ease; }
     .main-content.visible { opacity: 1; }
-    .radio-group { display: flex; flex-wrap: wrap; gap: 1rem; margin: 0.5rem 0; }
-    .radio-group label { display: flex; align-items: center; gap: 0.4rem; font-size: 0.9rem; }
-    .rsvp-section h3 { font-size: 1rem; margin: 0.8rem 0 0.3rem; color: #7d8ea1; font-weight: 300; }
+    .radio-group { display: flex; flex-wrap: wrap; gap: 1rem; margin: 0.5rem 0; justify-content:center; }
+    .radio-group label { display: flex; align-items: center; gap: 0.4rem; font-size: 0.82rem; color:#6f7f91; }
+    .rsvp-section h3 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 1.45rem;
+        font-weight: 400;
+        color: #6d7f92;
+        text-align: center;
+        margin: 1.4rem 0 0.5rem;
+    }
     input[type="radio"] { accent-color: #d8c19a; }
 </style>
 
