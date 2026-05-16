@@ -65,16 +65,26 @@
         }
 
         /* Узкий контейнер */
+        .container {
+            width: 100%;
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 20px 16px 80px;
+            position: relative;
+            z-index: 2;
+        }
+
         
-        .invitation-card{
+.invitation-card{
             position:relative;
+            overflow:hidden;
             background:
-                linear-gradient(rgba(255,252,248,.92), rgba(255,252,248,.92)),
+                linear-gradient(rgba(255,252,248,.88), rgba(255,252,248,.88)),
                 url('img/decor/paper-texture-2.jpg');
             background-size:cover;
-            overflow:hidden;
-            box-shadow:0 20px 80px rgba(0,0,0,.06);
             border:1px solid rgba(214,190,138,.25);
+            box-shadow:0 30px 100px rgba(0,0,0,.08);
+            padding:20px 0 60px;
         }
 
         .invitation-card::before{
@@ -85,40 +95,219 @@
                 url('img/decor/gold-speckles.png'),
                 url('img/decor/watercolor-cloud-blue.png');
             background-repeat:repeat,no-repeat;
-            background-size:800px auto, 1200px auto;
-            background-position:center, center 300px;
-            opacity:.22;
+            background-size:900px auto, 1400px auto;
+            background-position:center, center 200px;
+            opacity:.28;
             pointer-events:none;
         }
 
-        .invitation-card > *{
+        .invitation-card>*{
             position:relative;
             z-index:2;
         }
 
-
-        .container {
-            width: 100%;
-            max-width: 620px;
-            margin: 0 auto;
-            padding: 20px 16px 80px;
+        /* Общие блоки — без блюра, плотный фон */
+        .card {
+            background: linear-gradient(rgba(255,255,255,.82), rgba(255,255,255,.82));
+            border-radius: 24px;
+            border: 1px solid rgba(214,190,138,.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            padding: 2rem 1.8rem;
+            margin-bottom: 1rem;
             position: relative;
-            z-index: 2;
+            overflow: hidden;
         }
 
-        /* Общие блоки — без блюра, плотный фон */
-        
-        .card {
+        /* Акварельное пятно под каждым блоком (вместо разделителей) */
+        .card::before,
+        .calendar-card::before,
+        .story-timeline::before {
+            content: "";
+            position: absolute;
+            width: 320px;
+            height: 320px;
+            background-image: url('img/decor/watercolor-cloud-blue.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.18;
+            z-index: 0;
+            pointer-events: none;
+            bottom: -60px;
+            right: -60px;
+        }
+
+        h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: #7d8ea1;
+            margin-bottom: 1.2rem;
+            text-align: center;
+            border-bottom: none;
+            letter-spacing: 0.5px;
+        }
+
+        /* HERO — огромный, с большими листьями */
+        .hero {
+            position: relative;
+            padding: 120px 40px 80px;
+            text-align: center;
             background: transparent;
             border:none;
             box-shadow:none;
-            border-radius:0;
-            padding:4rem 2rem;
-            margin-bottom:0;
-            text-align:center;
-            position:relative;
+            overflow: visible;
         }
 
+        .hero-leaf-left,
+        .hero-leaf-right {
+            right:-280px;
+            top:-220px;
+            transform:scaleX(-1);
+        }
+        .hero-leaf-left {
+            left:-280px;
+            top:-220px;
+        }
+        .hero-leaf-right {
+            right:-280px;
+            top:-220px;
+            transform:scaleX(-1);
+        }
+
+        .hero-photo-frame {
+            width: 420px;
+            height: 560px;
+            max-width: 100%;
+            margin: 0 auto 50px;
+            position: relative;
+        }
+        .hero-main-photo {
+            position: absolute;
+            inset: 18px;
+            width: calc(100% - 36px);
+            height: calc(100% - 36px);
+            object-fit: cover;
+            border-radius: 300px;
+            z-index: 1;
+        }
+        .oval-frame {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            z-index: 2;
+            opacity: 0.95;
+        }
+
+        .hero-names {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 7rem;
+            font-weight: 400;
+            color: #6d7f92;
+            line-height: .85;
+            letter-spacing: -2px;
+            margin-top: 0;
+        }
+        .hero-date {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 6px;
+            color: #d8c19a;
+            text-transform: uppercase;
+            margin-top: 1rem;
+        }
+        .hero-subtitle {
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: #9aaabd;
+            margin-top: 1rem;
+        }
+
+        /* КАЛЕНДАРЬ — огромный, во всю ширину */
+        .calendar-section {
+            display: flex;
+            justify-content: center;
+            margin: 0.5rem 0;
+        }
+        .calendar-card {
+            width:100%;
+            padding:120px 80px;
+            border-radius:400px;
+            background:rgba(255,255,255,.45);
+            border:1px solid rgba(214,190,138,.3);
+            text-align:center;
+            position:relative;
+            overflow:hidden;
+            margin:50px 0;
+            box-shadow:0 10px 40px rgba(0,0,0,.03);
+        }
+        .rsvp-form button {
+            background: #d8c19a;
+            color: #fff;
+            border: none;
+            padding: 0.9rem;
+            border-radius: 60px;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 0.5rem;
+        }
+        .footer-ornament {
+            width: 200px;
+            display: block;
+            margin: 1rem auto 1.5rem;
+            opacity: 0.5;
+        }
+
+        /* Угловой декор — заметный */
+        .site-corner {
+            position: fixed;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.4;
+        }
+        .corner-1 {
+            top: 0;
+            left: 0;
+            width: 280px;
+        }
+        .corner-2 {
+            bottom: 0;
+            right: 0;
+            width: 280px;
+            transform: rotate(180deg);
+        }
+
+        /* Анимация появления */
+        .card, .hero, .calendar-card, .story-timeline {
+            animation: fadeUp 0.9s ease both;
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Мобильная версия — адаптация под большие элементы */
+        @media (max-width: 680px) {
+            .container { max-width: 540px; }
+            .hero { padding: 80px 20px 60px; min-height: 720px; }
+            .hero-photo-frame { width: 280px; height: 380px; }
+            .hero-leaf-left,
+        .hero-leaf-right {
+            right:-280px;
+            top:-220px;
+            transform:scaleX(-1);
+        }
+    .startscreen-content {
+        max-width: 90%;
+        padding: 2rem;
+        background: rgba(255,255,255,0.8);
+        border-radius: 48px;
+        border: 1px solid rgba(214,190,138,.2);
+        text-align: center;
+    }
     .startscreen-content img {
         width: 100px;
         border-radius: 50%;
